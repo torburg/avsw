@@ -74,8 +74,9 @@ class AuthorizationViewController: UIViewController {
             alertController.addAction(UIAlertAction(title: "Close", style: .destructive, handler: nil))
             self.present(alertController, animated: true, completion: nil)
         } else {
-            let mainViewController = MainViewController()
-            present(mainViewController, animated: true, completion: nil)
+            let tabBarViewController = TabBarViewController()
+            tabBarViewController.modalPresentationStyle = .fullScreen
+            present(tabBarViewController, animated: true, completion: nil)
         }
     }
 
