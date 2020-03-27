@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		884AB987242E149A00BA59CA /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884AB986242E149A00BA59CA /* Person.swift */; };
+		884AB989242E14A500BA59CA /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884AB988242E14A500BA59CA /* Attribute.swift */; };
 		884C8060242CD3FD009D2D36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884C805F242CD3FD009D2D36 /* AppDelegate.swift */; };
 		884C8069242CD403009D2D36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 884C8068242CD403009D2D36 /* Assets.xcassets */; };
 		884C806C242CD403009D2D36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 884C806A242CD403009D2D36 /* LaunchScreen.storyboard */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		884AB986242E149A00BA59CA /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		884AB988242E14A500BA59CA /* Attribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attribute.swift; sourceTree = "<group>"; };
 		884C805C242CD3FD009D2D36 /* avswTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = avswTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		884C805F242CD3FD009D2D36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		884C8068242CD403009D2D36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -43,6 +47,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		884AB98A242E14B100BA59CA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				884AB988242E14A500BA59CA /* Attribute.swift */,
+				884AB986242E149A00BA59CA /* Person.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		884AB98B242E14C200BA59CA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				884C8073242CD49E009D2D36 /* AuthorizationViewController.swift */,
+				884C8085242D6DFA009D2D36 /* TabBarViewController.swift */,
+				884C8089242D757F009D2D36 /* EditViewController.swift */,
+				884C8087242D7086009D2D36 /* AboutViewController.swift */,
+				884C8077242CFE79009D2D36 /* ListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		884AB98C242E14DC00BA59CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				884C8074242CD49E009D2D36 /* AuthorizationViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		884C8053242CD3FD009D2D36 = {
 			isa = PBXGroup;
 			children = (
@@ -63,12 +96,9 @@
 			isa = PBXGroup;
 			children = (
 				884C805F242CD3FD009D2D36 /* AppDelegate.swift */,
-				884C8073242CD49E009D2D36 /* AuthorizationViewController.swift */,
-				884C8085242D6DFA009D2D36 /* TabBarViewController.swift */,
-				884C8089242D757F009D2D36 /* EditViewController.swift */,
-				884C8087242D7086009D2D36 /* AboutViewController.swift */,
-				884C8077242CFE79009D2D36 /* ListViewController.swift */,
-				884C8074242CD49E009D2D36 /* AuthorizationViewController.xib */,
+				884AB98B242E14C200BA59CA /* Controller */,
+				884AB98A242E14B100BA59CA /* Model */,
+				884AB98C242E14DC00BA59CA /* View */,
 				884C8068242CD403009D2D36 /* Assets.xcassets */,
 				884C806A242CD403009D2D36 /* LaunchScreen.storyboard */,
 				884C806D242CD403009D2D36 /* Info.plist */,
@@ -151,7 +181,9 @@
 				884C8060242CD3FD009D2D36 /* AppDelegate.swift in Sources */,
 				884C808A242D7580009D2D36 /* EditViewController.swift in Sources */,
 				884C8086242D6DFA009D2D36 /* TabBarViewController.swift in Sources */,
+				884AB987242E149A00BA59CA /* Person.swift in Sources */,
 				884C8088242D7086009D2D36 /* AboutViewController.swift in Sources */,
+				884AB989242E14A500BA59CA /* Attribute.swift in Sources */,
 				884C8079242CFE79009D2D36 /* ListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

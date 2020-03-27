@@ -15,8 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let rootViewController = AuthorizationViewController()
-//        let rootViewController = TabBarViewController()
+//        let rootViewController = AuthorizationViewController()
+        let rootViewController = TabBarViewController()
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = rootViewController
         window?.makeKeyAndVisible()
@@ -39,3 +39,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+func generatePlist() -> [Person] {
+    var list = [Person]()
+
+    for i in 1...5 {
+        var attributes = [Attribute]()
+        for i in 1...3 {
+            attributes.append(Attribute(id: UUID(), name: "Attr name \(i)"))
+        }
+        list.append(Person(id: UUID(), name: "Person \(i)", attributes: attributes, createdAt: Date(), updatedAt: Date()))
+    }
+    return list
+}
