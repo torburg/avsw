@@ -10,6 +10,8 @@ import UIKit
 
 class EditViewController: UIViewController {
 
+    var person: Person?
+
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var attributes: UITableView!
@@ -38,6 +40,30 @@ class EditViewController: UIViewController {
     }
     @objc func saveChanges() {
         print(#function)
+        guard let name = name.text, !name.isEmpty else {
+            // TODO: Create Alert
+            return
+        }
+        var newPerson: Person?
+        if let lastPerson = person {
+            newPerson = Person(id: lastPerson.id,
+                                name: name,
+                                attributes: [],
+                                createdAt: lastPerson.createdAt,
+                                updatedAt: Date())
+        } else {
+            newPerson = Person(id: UUID(),
+                                name: name,
+                                attributes: [],
+                                createdAt: Date(),
+                                updatedAt: Date())
+        }
+        do {
+            try Storage.instance.save(newPerson!)
+        }
+        catch {
+            print(error)
+        }
     }
 }
 

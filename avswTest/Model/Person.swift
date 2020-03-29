@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Person {
+struct Person: Codable {
     let id: UUID
     let name: String
     let attributes: [Attribute]

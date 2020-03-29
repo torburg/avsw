@@ -17,8 +17,14 @@ class ListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarController?.selectedViewController = self
-        personList = generatePlist()
+        personList = Storage.instance.elements
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: reusableIndentifier)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        Storage.instance.load()
+        personList = Storage.instance.elements
+        tableView.reloadData()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

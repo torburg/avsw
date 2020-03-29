@@ -15,6 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        print(Storage.instance.doesExist())
+        if Storage.instance.doesExist() {
+            Storage.instance.load()
+        } else {
+            Storage.instance.generatePlist()
+        }
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
 //        let rootViewController = AuthorizationViewController()
         let rootViewController = TabBarViewController()
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -37,17 +44,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
     }
-}
-
-func generatePlist() -> [Person] {
-    var list = [Person]()
-
-    for i in 1...5 {
-        var attributes = [Attribute]()
-        for i in 1...3 {
-            attributes.append(Attribute(id: UUID(), name: "Attr name \(i)"))
-        }
-        list.append(Person(id: UUID(), name: "Person \(i)", attributes: attributes, createdAt: Date(), updatedAt: Date()))
-    }
-    return list
 }

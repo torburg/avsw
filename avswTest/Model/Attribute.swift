@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Attribute {
+struct Attribute: Codable {
     let id: UUID
     let name: String
 }
