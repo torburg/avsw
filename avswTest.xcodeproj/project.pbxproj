@@ -18,6 +18,7 @@
 		884C8086242D6DFA009D2D36 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884C8085242D6DFA009D2D36 /* TabBarViewController.swift */; };
 		884C8088242D7086009D2D36 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884C8087242D7086009D2D36 /* AboutViewController.swift */; };
 		884C808A242D7580009D2D36 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884C8089242D757F009D2D36 /* EditViewController.swift */; };
+		88991E7A2430FD5500AA6D72 /* EditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88991E792430FD5500AA6D72 /* EditView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		884C8085242D6DFA009D2D36 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		884C8087242D7086009D2D36 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		884C8089242D757F009D2D36 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		88991E792430FD5500AA6D72 /* EditView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 		884AB98C242E14DC00BA59CA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				88991E792430FD5500AA6D72 /* EditView.xib */,
 				884C8074242CD49E009D2D36 /* AuthorizationViewController.xib */,
 			);
 			path = View;
@@ -166,6 +169,7 @@
 			files = (
 				884C8076242CD49E009D2D36 /* AuthorizationViewController.xib in Resources */,
 				884C806C242CD403009D2D36 /* LaunchScreen.storyboard in Resources */,
+				88991E7A2430FD5500AA6D72 /* EditView.xib in Resources */,
 				884C8069242CD403009D2D36 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
