@@ -15,6 +15,7 @@ class AuthorizationViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
 
     @IBAction func logInButtonPressed(_ sender: Any) {
+        dismissKeyboard()
         guard let name = name.text else {
             print("Cannot get name from UITextField")
             fatalError()
@@ -46,6 +47,16 @@ class AuthorizationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         progressBar.isHidden = true
+        setGesturesRecogrizers()
+    }
+
+    func setGesturesRecogrizers() {
+          let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+          view.addGestureRecognizer(tap)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     func runProgressBarAnimate(in group: DispatchGroup) {
@@ -58,7 +69,7 @@ class AuthorizationViewController: UIViewController {
                 group.leave()
                 return
             }
-            progress += 0.05
+            progress += 0.01
             self.progressBar.setProgress(Float(progress), animated: true)
         }
     }
@@ -84,5 +95,12 @@ class AuthorizationViewController: UIViewController {
         let alertController = UIAlertController(title: "\(sender) can't be empty", message: "Fill it", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Close", style: .destructive, handler: nil))
         present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension AuthorizationViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
