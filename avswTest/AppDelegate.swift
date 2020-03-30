@@ -14,14 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        print(Storage.instance.doesExist())
-        if Storage.instance.doesExist() {
-            Storage.instance.load()
-        } else {
-            Storage.instance.generatePlist()
-        }
-        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+
 //        let rootViewController = AuthorizationViewController()
         let rootViewController = TabBarViewController()
         window = UIWindow(frame: UIScreen.main.bounds)

@@ -19,7 +19,6 @@ class Storage {
         add(person)
         let encoder = JSONEncoder()
         let data = try encoder.encode(elements)
-        print(data)
         guard let fileURL = getFileURL() else {
             print("Can't create File to save")
             return
@@ -33,17 +32,26 @@ class Storage {
             return
         }
         if let data = FileManager.default.contents(atPath: fileURL.path) {
-            do {
-                let decoder = JSONDecoder()
-                elements = try decoder.decode([Person].self, from: data)
-            } catch {
-                print("Can't parse data from file: \(error)")
+            if !data.isEmpty {
+                do {
+                    let decoder = JSONDecoder()
+                    elements = try decoder.decode([Person].self, from: data)
+                } catch {
+                    print("Can't parse data from file: \(error)")
+                }
             }
         }
     }
 
-    func delete(person: Person) {
-
+    func delete(_ person: Person) throws {
+        remove(person)
+        let encoder = JSONEncoder()
+        let data = try encoder.encode(elements)
+        guard let fileURL = getFileURL() else {
+            print("Can't create File to save")
+            return
+        }
+        try data.write(to: fileURL)
     }
 
     private func doesContain(_ person: Person) -> Bool {
@@ -54,17 +62,6 @@ class Storage {
     }
     private func remove(_ person: Person) {
         elements = elements.filter{ $0.id != person.id }
-    }
-    // TODO: Delete this test fucntion
-    func doesExist() -> Bool {
-        guard let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
-            return false
-        }
-        let fileUrl = path.appendingPathComponent("PersonList")
-        if FileManager.default.fileExists(atPath: fileUrl.path) {
-            return true
-        }
-        return false
     }
 
     private func getFileURL() -> URL? {
@@ -78,18 +75,5 @@ class Storage {
             }
         }
         return fileUrl
-    }
-
-    func generatePlist() {
-        var list = [Person]()
-
-        for i in 1...5 {
-            var attributes = [Attribute]()
-            for i in 1...3 {
-                attributes.append(Attribute(id: UUID(), name: "Attr name \(i)"))
-            }
-            list.append(Person(id: UUID(), name: "Person \(i)", attributes: attributes, createdAt: Date(), updatedAt: Date()))
-        }
-        elements = list
     }
 }

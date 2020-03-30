@@ -40,9 +40,3 @@ class TabBarViewController: UITabBarController {
         self.selectedViewController = listViewController
     }
 }
-
-//extension TabBarViewController: UITabBarControllerDelegate {
-//    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-//        print(viewController.title!)
-//    }
-//}
